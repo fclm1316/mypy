@@ -18,6 +18,8 @@ shutil.copytree('exp3','exp1')
 print('¸´ÖÆexp3 Îª exp1      shutil.copytree')
 #fp = open('text.txt',w)
 #qweqeqejalknnda
+#asdadad
+#asdadii123123
 
 #print('ls')
 #os.system('ls')
