@@ -16,7 +16,7 @@ shutil.move('exp1','exp3')
 print('重命名 exp1 -- exp3    shutil.move')
 shutil.copytree('exp3','exp1')
 print('复制exp3 为 exp1      shutil.copytree')
-fp = open('text.txt',w)
+#fp = open('text.txt',w)
 
 #print('ls')
 #os.system('ls')
