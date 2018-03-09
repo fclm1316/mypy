@@ -42,11 +42,12 @@ for names in all_file_path2:
         print(ss)
 #没办法过滤
 
+
 print('===================================================')
 for w_path, w_dirs, w_files in os.walk(input_path):
     for walk_files in w_files:
         all_file_path3 = os.path.join(w_path, walk_files)
-        #定义匹配模式
+        #定义匹配模式,re.I忽略大小写
         pattern = re.compile(r'\.sh$',re.I)
         #查找
         if pattern.search(all_file_path3):
