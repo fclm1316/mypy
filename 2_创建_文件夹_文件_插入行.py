@@ -5,9 +5,9 @@ import os
 import shutil
 ret = os.getcwd()
 print('当前路径: {:s}'.format(str(ret)))
-os.makedirs("./txt/exp1",mode=0o777)
+os.makedirs("./txt/exp1",mode=0o755)
 print('创建多级文件夹 /txt/exp1 755 ')
-os.mkdir("./txt/exp2",mode=0o777)
+os.mkdir("./txt/exp2",mode=0o755)
 print('创建单级文件夹 /txt/exp2 755 ')
 os.chdir("./txt/")
 ret = os.getcwd()
