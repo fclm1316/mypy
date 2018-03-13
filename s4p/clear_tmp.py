@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#import shutil
 import glob
 import os
 import time
@@ -8,6 +9,7 @@ FILES_DIR = os.path.join(HOME,'file')
 LOG_DIR = os.path.join(HOME,'log')
 COMLOG = os.path.join(LOG_DIR,'comlog')
 ERRLOG = os.path.join(LOG_DIR,'errlog')
+DBBAK = os.path.join(HOME,'db.bak')
 today = date.today()
 #date_time = datetime.date
 #获得时间戳
@@ -27,8 +29,8 @@ def delete_file(d_path, d_time, *d_file):
             time_delta = (time_now - stateinfo) /60/60/24
             if time_delta > d_time:
                 #print('{0:d}'.format(int(time_delta)))
-                print('要删除的文件')
-                print('{0:s}   多少天前： {1:d}'.format(os.path.join(f_time),int(time_delta)))
+                print('delete files is :')
+                print('{0:s}     {1:d}d ago'.format(os.path.join(f_time),int(time_delta)))
                 #os.remove(f_time)
         #print(all_file)
         #print(d_path)
@@ -42,8 +44,8 @@ def delete_file(d_path, d_time, *d_file):
             stateinfo =  os.stat(f_time).st_mtime
             time_delta = (time_now - stateinfo) /60/60/24
             if time_delta > d_time:
-                print('要删除的文件')
-                print('{0:s}   多少天前： {1:d}'.format(os.path.join(f_time),int(time_delta)))
+                print('delete files is :')
+                print('{0:s}     {1:d}d ago'.format(os.path.join(f_time),int(time_delta)))
                 #os.remove(f_time)
         #print(all_file)
     else:
@@ -62,6 +64,15 @@ def delete_file_2(d_path,d_time,*d_file):
     else:
         print('delete_file + args(path,days[,files]) ')
 
+def delete_dir(d_path,d_time):
+    for w_path,w_dirs,w_files in os.walk(d_path):
+        for walk_dirs in w_dirs:
+            f_f = os.path.join(w_path, walk_dirs)
+            stateinfo = os.stat(f_f).st_mtime
+            time_delta = (time_now - stateinfo) /60/60/24
+            if time_delta > d_time:
+                shutil.rmtree(f_f)
+
 def rename_file(re_file):
     if os.path.exists(re_file):
         os.rename(re_file,re_file + '_' + '%s' % (CURDATE))
@@ -70,5 +81,6 @@ def rename_file(re_file):
 delete_file(FILES_DIR,2,'tmp*')
 delete_file(FILES_DIR,10,'*_[0-9]???_*.dat')
 delete_file(LOG_DIR,30)
+delete_dir(DBBAK,10)
 rename_file(COMLOG)
 rename_file(ERRLOG)
