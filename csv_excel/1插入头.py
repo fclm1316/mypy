@@ -4,7 +4,6 @@ import sys
 import csv
 import pandas as pd
 input_file = sys.argv[1]
-output_file = sys.argv[2]
 header_list =['WORKDATE','REFID','SEQNO','TRNCODE','CLASSID','PRESDATE','PRESTIME','ORIGINATOR',\
               'ACCEPTOR','DCFLAG','NOTETYPE','NOTENO','CURCODE','CURTYPE','ISSUEDATE',\
               'SETTLAMT','ISSUEAMT','REMNAMT','PAYINGACCT','PAYER','PAYINGBANK','PCBANK',\
@@ -19,4 +18,9 @@ header_list =['WORKDATE','REFID','SEQNO','TRNCODE','CLASSID','PRESDATE','PRESTIM
 with open(input_file,'r+',encoding='gb18030') as f:
     content = f.read()
     f.seek(0,0)
-    f.write(str(header_list)+content)
+    for aa in header_list:
+        if aa == 'RESERVED':
+            f.write(aa)
+        else:
+            f.write(aa+',')
+    f.write('\n' + content)
