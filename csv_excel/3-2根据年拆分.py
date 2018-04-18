@@ -25,21 +25,23 @@ year_list = sorted(set(year_list))
 print(year_list)
 #读取文件
 with open(input_file,'r',encoding='gb18030',newline='') as csv_in_file:
-#    with open(output_file,'w',encoding='gb18030',newline='') as csv_out_file:
-     filereader = csv.reader(csv_in_file,delimiter=',')
-#        filewriter = csv.writer(csv_out_file)
+    filereader = csv.reader(csv_in_file,delimiter=',')
         #读取标题头
-     header = next(filereader)
-        #filewriter.writerow(header)
-     for BB in filereader:
-         work_list = BB[0]
-         work_date = datetime.strptime(work_list,'%Y%m%d')
-         work_year = work_date.strftime('%Y')
-         output_file_year = os.path.join(output_file+'_'+work_year+'.csv')
-         with open(output_file_year,'a+',encoding='gb18030',newline='') as csv_out_file:
-             filewriter = csv.writer(csv_out_file)
-             for AA in year_list:
-                 #filewriter.writerow(header)
-                 if  AA == work_year:
-                     filewriter.writerow(BB)
+    header = next(filereader)
+    for output_year in year_list:
+        output_file_year = os.path.join(output_file+'_'+output_year+'.csv')
+        with open(output_file_year,'w',encoding='gb18030',newline='') as csv_out_file:
+            filewriter = csv.writer(csv_out_file)
+            filewriter.writerow(header)
+    for BB in filereader:
+        work_list = BB[0]
+        work_date = datetime.strptime(work_list,'%Y%m%d')
+        work_year = work_date.strftime('%Y')
+        output_file_year = os.path.join(output_file+'_'+work_year+'.csv')
+        with open(output_file_year,'a+',encoding='gb18030',newline='') as csv_out_file:
+            filewriter = csv.writer(csv_out_file)
+            for AA in year_list:
+                #filewriter.writerow(header)
+                if  AA == work_year:
+                    filewriter.writerow(BB)
 
