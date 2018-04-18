@@ -35,10 +35,10 @@ with open(input_file,'r',encoding='gb18030',newline='') as csv_in_file:
          work_list = BB[0]
          work_date = datetime.strptime(work_list,'%Y%m%d')
          work_year = work_date.strftime('%Y')
-         for AA in year_list:
-             output_file_year = os.path.join(output_file+'_'+work_year+'.csv')
-             with open(output_file_year,'a+',encoding='gb18030',newline='') as csv_out_file:
-                 filewriter = csv.writer(csv_out_file)
+         output_file_year = os.path.join(output_file+'_'+work_year+'.csv')
+         with open(output_file_year,'a+',encoding='gb18030',newline='') as csv_out_file:
+             filewriter = csv.writer(csv_out_file)
+             for AA in year_list:
                  #filewriter.writerow(header)
                  if  AA == work_year:
                      filewriter.writerow(BB)
