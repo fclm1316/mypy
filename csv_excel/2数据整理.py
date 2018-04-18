@@ -23,6 +23,7 @@ with open(input_file,'r',encoding='gb18030',newline='') as csv_in_file:
         filewriter = csv.writer(csv_out_file)
         #读取标题头
         header = next(filereader)
+        #print(header)
         filewriter.writerow(header)
         for row_list in filereader:
             #查找字符串里的逗号

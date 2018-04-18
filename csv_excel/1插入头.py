@@ -20,7 +20,7 @@ with open(input_file,'r+',encoding='gb18030') as f:
     f.seek(0,0)
     for aa in header_list:
         if aa == 'RESERVED':
-            f.write(aa)
+            f.write(aa+'\n')
         else:
-            f.write(aa+',')
-    f.write('\n' + content)
+            f.write(aa+'\'')
+    f.write(content)

@@ -16,13 +16,14 @@ workdate = data_frame.WORKDATE
 list_workdate = []
 #组成一个列
 for list_workdates in workdate:
-    list_workdate.append(list_workdates)
+    list_workdate.append(str(list_workdates))
 #对列中的元素统计
 count_workdate = Counter(list_workdate)
 #print(count_workdate)
 with open(output_file,'w',newline='') as  csv_out_file:
     filewriter = csv.writer(csv_out_file)
-    for key,value in count_workdate.items():
+    #排序
+    for key,value in sorted(count_workdate.items()):
         key_value = [key,value]
         #print(key,value)
         filewriter.writerow(key_value)
