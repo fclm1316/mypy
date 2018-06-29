@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 #coding:utf-8
+#二分排序
 def binary_searcg(list,item):
     low = 0
     high = len(list) - 1  #9

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 #coding:utf-8
+#选择排序
 def findSmallest(arr):
     smallest = arr[0]      #获得第一个用来比较的值
     smallest_index = 0      #它的位置是 0 位
