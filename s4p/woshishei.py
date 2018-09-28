@@ -7,10 +7,15 @@ import xml.etree.ElementTree as ET
 input_file = sys.argv[1]
 new_xml = 'new_xml.xml'
 new_txt = 'new_txt.txt'
-if os.path.exists(new_xml):
-    os.remove(new_xml)
-if os.path.exists(new_txt):
-    os.remove(new_txt)
+def del_exists(file_name):
+    if os.path.exists(file_name):
+        os.remove(file_name)
+del_exists(new_xml)
+del_exists(new_txt)
+# if os.path.exists(new_xml):
+#     os.remove(new_xml)
+# if os.path.exists(new_txt):
+#     os.remove(new_txt)
 with open(input_file,'r',newline='') as r_file:
     with open(new_xml,'w',newline='') as w_xml:
         #读取文件后匹配内容
