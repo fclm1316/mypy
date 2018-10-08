@@ -44,5 +44,3 @@ for child in root:
         with open(new_txt,'a',newline='') as w_txt:
          #   print(new_line)
             w_txt.writelines(new_line)
-
-
