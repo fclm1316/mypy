@@ -74,5 +74,4 @@ new_total_amt.text = total_amt
 new_tree = ET.ElementTree(new_root)
 #树写文件头
 new_tree.write("test.xml",encoding='gb18030',xml_declaration=True)
-#dump ......... 需要改成静默dump
-ET.dump(new_tree)
+#ET.dump(new_tree)
