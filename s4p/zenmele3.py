@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 #coding:utf-8
-#应该有更好的办法获得元素的值和属性，而不是一个一个获取
 import sys
 import xml.etree.ElementTree as ET
 
@@ -13,26 +12,17 @@ except Exception :
 
 tree = ET.parse(input_file)
 root = tree.getroot()
-#定义新元素
 new_root = ET.Element('nbrcs')
-#在新的根元素下产生Multi
 new_Multi = ET.SubElement(new_root,'Multi')
-#寻找Multi标签
 for child in root:
     if str(child.tag) == 'Multi':
         for childs in child:
-            #print(childs.tag,childs.attrib)
-            #获得需要的标签的值
             wznetid = childs.find('wznetid').text
             wzdate = childs.find('wzdate').text
             wzbatchno = childs.find('wzbatchno').text
             batchitemno = childs.find('batchitemno').text
-        #    print(wznetid,wzdate,wzbatchno,childs.tag,childs.attrib)
-            #新xml的在new_Multi下
             new_detail = ET.SubElement(new_Multi,childs.tag,childs.attrib)
-            #元素坐在的位置，名称，属性
             new_wznetid = ET.SubElement(new_detail,'wznetid')
-            #元素的值
             new_wznetid.text = wznetid
             new_wzdate = ET.SubElement(new_detail,'wzdate')
             new_wzdate.text = wzdate
@@ -44,7 +34,6 @@ for child in root:
             new_payflag.text = '1'
             new_dealflag = ET.SubElement(new_detail,'dealflag')
             new_dealflag.text = '00'
-#可以定义一个函数，减少代码
 def root_find(subelement):
     name = root.find(subelement)
     new_name = ET.SubElement(new_root,subelement)
@@ -88,8 +77,6 @@ root_find('anslimitdate')
 root_find('anslimitnettingno')
 root_find('total_cnt')
 root_find('total_amt')
-#生成树
 new_tree = ET.ElementTree(new_root)
-#树写文件头
 new_tree.write(output_file,encoding='gb18030',xml_declaration=True)
 #ET.dump(new_tree)
