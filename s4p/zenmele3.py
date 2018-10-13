@@ -34,41 +34,12 @@ for child in root:
             new_payflag.text = '1'
             new_dealflag = ET.SubElement(new_detail,'dealflag')
             new_dealflag.text = '00'
+            new_brcode = ET.SubElement(new_detail, 'brcode')
+            new_brname = ET.SubElement(new_detail, 'brname')
 def root_find(subelement):
     name = root.find(subelement)
     new_name = ET.SubElement(new_root,subelement)
     new_name.text = name.text
-#lznetid = root.find('lznetid').text
-#new_lzbetid = ET.SubElement(new_root,'lznetid')
-#new_lzbetid.text = lznetid
-
-# lzdate = root.find('lzdate').text
-# new_lzdate = ET.SubElement(new_root,'lzdate')
-# new_lzdate.text = lzdate
-#
-# lzbatchno = root.find('lzbatchno').text
-# new_lzbatchno = ET.SubElement(new_root,'lzbatchno')
-# new_lzbatchno.text = lzbatchno
-#
-# payflag = root.find('payflag').text
-# new_payflag = ET.SubElement(new_root,'payflag')
-# new_payflag.text = payflag
-#
-# anslimitdate = root.find('anslimitdate').text
-# new_anslimitdate = ET.SubElement(new_root,'anslimitdate')
-# new_anslimitdate.text = anslimitdate
-#
-# anslimitnettingno = root.find('anslimitnettingno').text
-# new_anslimitnettingno = ET.SubElement(new_root,'anslimitnettingno')
-# new_anslimitnettingno.text = anslimitnettingno
-#
-# total_cnt = root.find('total_cnt').text
-# new_total_cnt = ET.SubElement(new_root,'total_cnt')
-# new_total_cnt.text = total_cnt
-#
-# total_amt = root.find('total_amt').text
-# new_total_amt = ET.SubElement(new_root,'total_amt')
-# new_total_amt.text = total_amt
 root_find('lznetid')
 root_find('lzdate')
 root_find('lzbatchno')
