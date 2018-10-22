@@ -14,6 +14,6 @@ for i in range(6):
     print(i,end=' ')
 
 f = ('Barry Allen',50,91.5)
-#迭代器
+#迭代器??
 print(':'.join(str(x) for x in f))
 print(*f,sep=':')
