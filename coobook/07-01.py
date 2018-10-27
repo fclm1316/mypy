@@ -5,8 +5,8 @@ def avg(first,*rest):
     return((first + sum(rest)) / (1+len(rest)))
 print(avg(1,2,3))
 print(avg(2,4,6,8))
-#形参--关键字参数
-#*实参，只能在位置参数后面  **形参旨在在最后一个参数
+#形参--位置参数
+#*实参，只能在位置参数后面  **形参旨在在最后一个参数,关键字参数
 #强制关键字参数07-02
 def name_age(first_name,last_name,*other_name,**kwargs):
     print(first_name)
