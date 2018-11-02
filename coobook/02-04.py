@@ -5,7 +5,7 @@
 import re
 text1 = '11/27/2012'
 text2 = 'Nov 27,2012'
-#\d 数字
+#\d 数字 + 表示多个数字
 if re.match(r'\d+/\d+/\d',text1):
     print('yes')
 else:
