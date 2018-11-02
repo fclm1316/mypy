@@ -47,7 +47,8 @@ def main(pageno):
     for item in pares_page(html):
         # print(item)
         type = os.path.splitext(item[0])[1]
-        name = item[1]
+        name = str(item[1]).replace('?','')
+        print(name)
         # print(name.strip(),type,item[0])
         writ_to_file(name,type,item[0])
         #for key,values in item:
@@ -56,6 +57,8 @@ def main(pageno):
 
 if __name__ == '__main__' :
     #指定进程数量 Pool(processes=5)
-    pool = Pool()
-    pool.map(main,[i for i in range(2,49)])
-    #  main(5)
+    #pool = Pool()
+    #pool.map(main,[i for i in range(2,49)])
+    for i in range(2,49):
+       main(i)
+    #main(7)
