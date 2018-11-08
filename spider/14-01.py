@@ -2,10 +2,17 @@
 #coding:UTF-8
 import requests
 import re
+import sys
 import urllib.request
 from multiprocessing import Pool
 import os
 from requests.exceptions import RequestException
+try:
+    input_url = sys.argv[1]
+except Exception:
+    print('url')
+    sys.exit()
+
 header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
                         'AppleWebKit/537.36 (KHTML, like Gecko) '
                         'Chrome/70.0.3538.77 Safari/537.36'}
@@ -39,8 +46,23 @@ def writ_to_file(name,type,files):
         f.write(file_content.content)
         f.close()
 
+def page48(html_pattern):
+    pattern = re.compile('<p align="center">.*?img src="(.*?)" alt=.*?</p>',re.S)
+    items = re.findall(pattern,str(html_pattern))
+    return items
+
+def main1(page):
+    url = input_url + '_' + '48' + '.html'
+    html = get_page(url)
+    print(page)
+    for item in page48(html):
+        name = os.path.splitext(item)[0].split('_')[1]
+        type = os.path.splitext(item)[1]
+        print(name)
+        writ_to_file(name,type,item)
+
 def main(pageno):
-    url = 'https://www.3dmgame.com/bagua/511_' + str(pageno) + '.html'
+    url = input_url + '_' + str(pageno) + '.html'
     html = get_page(url)
     #print(html)
     print(pageno)
@@ -58,7 +80,7 @@ def main(pageno):
 if __name__ == '__main__' :
     #指定进程数量 Pool(processes=5)
     #pool = Pool()
-    #pool.map(main,[i for i in range(2,49)])
-    for i in range(2,49):
+    #pool.map(main,[i for i in range(2,48)])
+    for i in range(2,48):
        main(i)
-    #main(7)
+    main1(48)
