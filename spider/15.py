@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 #coding:utf-8
+#主要处理json数据，offset 设置开关
 import json
 import re
 import os
