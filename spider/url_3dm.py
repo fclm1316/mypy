@@ -1,0 +1,1 @@
+input_url_all = 'https://www.3dmgame.com/bagua/626.html'

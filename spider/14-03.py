@@ -7,12 +7,8 @@ import urllib.request
 from multiprocessing import Pool
 import os
 from requests.exceptions import RequestException
-try:
-    #获得输入的地址
-    input_url_all = sys.argv[1]
-except Exception:
-    print('url')
-    sys.exit()
+from url_3dm import *
+
 #分割地址去掉后缀
 input_url = os.path.splitext(input_url_all)[0]
 # print(input_url)

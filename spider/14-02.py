@@ -66,9 +66,9 @@ def main1(page):
         writ_to_file(name,type,item)
 
 if __name__ == '__main__':
-    # for i in range(2,48):
-    #     main(i)
-    pool = Pool()
-    pool.map(main,[i for i in range(2,48)])
+    for i in range(2,48):
+        main(i)
+    #pool = Pool()
+    #pool.map(main,[i for i in range(2,48)])
     main1(48)
 
