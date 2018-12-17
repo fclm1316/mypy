@@ -2,6 +2,7 @@
 #coding:UTF-8
 import requests
 import re
+from bs4 import BeautifulSoup
 import sys
 import urllib.request
 from multiprocessing import Pool
@@ -36,13 +37,7 @@ def pares_page(html_pattern):
     pattern = re.compile('<p align="center".*?img src="(htt.*?)" .*?alt=.*?<span>(.*?)</span>',re.S)
     items = re.findall(pattern,str(html_pattern))
     return items
-#     #print(items)
-#     # for items in items:
-#     #     yield {
-#     #         'jpg_gif':items[0],
-#     #         'name':items[1]
-#     #     }
-#
+
 def writ_to_file(save_path,name,type,files):
     #粘合名称.类型
     file_name = ''.join(save_path+name+type)
@@ -54,10 +49,22 @@ def writ_to_file(save_path,name,type,files):
         f.write(file_content.content)
         f.close()
 
+# def page48(html_pattern):
+#     pattern = re.compile('<p align="center">.*?img src="(.*?)" alt=.*?</p>',re.S)
+#     items = re.findall(pattern,str(html_pattern))
+#     return items
 def page48(html_pattern):
-    pattern = re.compile('<p align="center">.*?img src="(.*?)" alt=.*?</p>',re.S)
-    items = re.findall(pattern,str(html_pattern))
-    return items
+    #使用soup
+    soup = BeautifulSoup(html_pattern,'lxml')
+    pattern = re.compile('http.*?')
+    #select 选择器
+    for file_path in  soup.select("body div div div p img"):
+        #获得src属性
+        path = file_path.get('src')
+        #剔除
+        if re.search(pattern,path):
+            yield path
+
 
 def main48(page):
     url = input_url + '_' + '48' + '.html'
@@ -94,13 +101,13 @@ def main1(pageno):
     #    print(html)
     print(pageno)
     for item in pares_page(html):
-        # print(item)
+        print(item)
         #分割
-        type = os.path.splitext(item[0])[1]
-        name = str(item[1]).replace('?','')
+        # type = os.path.splitext(item[0])[1]
+        # name = str(item[1]).replace('?','')
         # print(name)
         # print(name.strip(),type,item[0])
-        writ_to_file(save_path,name,type,item[0])
+        # writ_to_file(save_path,name,type,item[0])
 
 
 if __name__ == '__main__' :
