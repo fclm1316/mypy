@@ -28,11 +28,23 @@ def pick_data(input_filename,output_filename):
         #通过itertuples方法获得元组,命名为pandas。获得每列内容，循环内容
     # for row in ID_name_ID.itertuples(index=True,name='Pandas'):
             for row in ID_name_ID.itertuples(index=False,name='New_ID_NAME'):
-            # Name = getattr(row,'Name')
+                Name = getattr(row,'Name')
             #通过getattr()在列中获得CtfID
                 CtfId = getattr(row,'CtfId')
                 if len(str(CtfId)) == 18:
-                    filewrite.writerow(row)
+                    # filewrite.writerow(row)
+                    birth_area = CtfId[0:2]
+                    birth_year = CtfId[6:10]
+                    birth_moon= CtfId[10:12]
+                    birth_day = CtfId[12:14]
+                    sex = CtfId[14:17]
+                    if int(sex) % 2 == 0:
+                        F_M = '女'
+                    else:
+                        F_M = '男'
+                    bb = (Name,CtfId,str(birth_area),str(birth_year),str(birth_moon),str(birth_day),F_M)
+                    # print(bb)
+                    filewrite.writerow(bb)
 
 def main():
     for in_file in in_path_file:
