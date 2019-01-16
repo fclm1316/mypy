@@ -7,8 +7,6 @@ import csv
 import os
 import glob
 
-#定义程序开始时间
-t_start = time.process_time()
 in_path = 'D:/2000W'
 in_path_file = glob.glob(os.path.join(in_path,'*.csv'))
 out_path = 'D:/2000Wnew'
@@ -35,17 +33,21 @@ def pick_data(input_filename,output_filename):
                 CtfId = getattr(row,'CtfId')
                 if len(str(CtfId)) == 18:
                     filewrite.writerow(row)
-                    print(row)
 
-
-
-if __name__ == '__main__':
-    # pick_data(input_file,output_file)
+def main():
     for in_file in in_path_file:
+    #定义程序开始时间
+        t_start = time.process_time()
         filename = os.path.basename(in_file)
         out_path_file = ''.join(out_path + '/'+ filename)
         pick_data(in_file,out_path_file)
         # print(in_file,out_path_file)
-    t_end = time.process_time()
-    t1 = t_end - t_start
-    print('耗时: {0:.2f} s'.format(t1))
+        t_end = time.process_time()
+        t1 = t_end - t_start
+        print('{0:s}  耗时: {1:.2f} s'.format(out_path_file,t1))
+
+
+
+if __name__ == '__main__':
+#定义程序开始时间
+    main()
