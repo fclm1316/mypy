@@ -80,7 +80,7 @@ def main(pageno):
         # print(item)
         #分割
         type = os.path.splitext(item[0])[1]
-        name = str(item[1]).replace('?','')
+        name = str(item[1]).replace('?','').replace('*','').replace('/','')
         # print(name)
         # print(name.strip(),type,item[0])
         writ_to_file(save_path,name,type,item[0])
