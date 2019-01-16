@@ -2,30 +2,50 @@
 #coding:utf-8
 import time
 import pandas as pd
-import linecache
 import csv
-from multiprocessing import Pool
 # t0 = time.perf_counter()
+import os
+import glob
 
+#定义程序开始时间
 t_start = time.process_time()
-input_file = 'D:/2000W/last5000.csv'
-output_file = 'D:/2000W/new5000.csv'
+in_path = 'D:/2000W'
+in_path_file = glob.glob(os.path.join(in_path,'*.csv'))
+out_path = 'D:/2000Wnew'
 
 
 def pick_data(input_filename,output_filename):
-    data_frame = pd.read_csv(input_filename,encoding='UTF-8',low_memory=False)
-    ID_name_ID = data_frame[['Name','CtfId']]
-    ID_name_ID.to_csv(output_filename,encoding='utf_8_sig',index=False)
+    #pd.read_csv 打开文件，chunksize 分块读取（一千条？），返回的是一个可迭代的对象TextFileReader
+    #巨大文件,C error: out of memory
+    data_frame = pd.read_csv(input_filename,encoding='UTF-8',low_memory=False,chunksize=1000)
+    with open(output_filename,'w',encoding='gb18030',newline='') as csv_write_file:
+        filewrite = csv.writer(csv_write_file)
+        #通过循环读取数据
+        for  aa in  data_frame:
+        #摘取名字和ID
+            ID_name_ID = aa[['Name','CtfId']]
+        # print(ID_name_ID)
+        #写入csv文件，去掉index
+    # ID_name_ID.to_csv(output_filename,encoding='utf_8_sig',index=False)
+        #通过itertuples方法获得元组,命名为pandas。获得每列内容，循环内容
+    # for row in ID_name_ID.itertuples(index=True,name='Pandas'):
+            for row in ID_name_ID.itertuples(index=False,name='New_ID_NAME'):
+            # Name = getattr(row,'Name')
+            #通过getattr()在列中获得CtfID
+                CtfId = getattr(row,'CtfId')
+                if len(str(CtfId)) == 18:
+                    filewrite.writerow(row)
+                    print(row)
 
-
-def check_data(filename):
-    data_frame = pd.read_csv(filename,encoding='UTF-8',low_memory=False)
-    bb = data_frame.loc[[2]]
 
 
 if __name__ == '__main__':
     # pick_data(input_file,output_file)
-    check_data(output_file)
+    for in_file in in_path_file:
+        filename = os.path.basename(in_file)
+        out_path_file = ''.join(out_path + '/'+ filename)
+        pick_data(in_file,out_path_file)
+        # print(in_file,out_path_file)
     t_end = time.process_time()
     t1 = t_end - t_start
     print('耗时: {0:.2f} s'.format(t1))
