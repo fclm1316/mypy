@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 #coding:utf-8
 import csv
+from multiprocessing import Pool
 input_filename = 'D:/2000Wnew/last50000.csv'
-output_filename ='D:/2000Wnew/new50000.csv'
+output_path ='D:/2000Wnew/'
 
 area={"11":"北京","12":"天津","13":"河北","14":"山西","15":"内蒙古",
       "21":"辽宁","22":"吉林","23":"黑龙江","31":"上海","32":"江苏",
@@ -46,7 +47,6 @@ list71 =[]
 list81 =[]
 list82 =[]
 list91 =[]
-
 def pick_data(filename):
       with open(filename,'r',encoding='gb18030',newline='') as csv_readfile:
           readfile = csv.reader(csv_readfile)
@@ -120,13 +120,30 @@ def pick_data(filename):
               else :
                   list91.append(aa)
 
+def write_list(list_name):
+    if len(list_name) != 0:
+        filename_csv = str(list_name[0][2])
+    # print(filename_csv)
+        for key,values in area.items():
+            if filename_csv == key:
+                # print(values)
+                write_csv = ''.join(output_path + values + ".csv")
+                # print(write_csv)
+                with open(write_csv,'w',encoding='gb18030',newline='') as csv_write:
+                    filewrite = csv.writer(csv_write)
+                    for a in list_name:
+                        filewrite.writerow(a)
 
-def main():
-    pick_data(input_filename)
-    for aa in list11:
-        print(aa)
+def main(list_name):
+    write_list(list_name)
 
 if __name__ == '__main__':
-    main()
+    pick_data(input_filename)
+    pool = Pool(processes=2)
+    pool.map(main,[i for i in [list11,list12,list13,list14,list15,list21,list22,list23,list31,list32,
+                               list33,list34,list35,list36,list37,list41,list42,list43,list44,list45,
+                               list46,list50,list51,list52,list53,list54,list61,list62,list63,list64,
+                               list65,list71,list81,list82,list91]])
+    # pool.map(main,[i for i in [list11,list12]])
 
 
