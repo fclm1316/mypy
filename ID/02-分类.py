@@ -6,7 +6,7 @@ from multiprocessing import Pool
 import os
 import glob
 input_filename = 'D:/2000Wnew/'
-output_path ='D:/2000Wnew/sheng'
+output_path ='D:/2000Wnew/tu'
 
 area={"11":"北京","12":"天津","13":"河北","14":"山西","15":"内蒙古",
       "21":"辽宁","22":"吉林","23":"黑龙江","31":"上海","32":"江苏",
@@ -137,6 +137,7 @@ def write_list(list_name):
                     for a in list_name:
                         filewrite.writerow(a)
 
+
 def main(list_name):
     write_list(list_name)
 
@@ -147,11 +148,11 @@ if __name__ == '__main__':
         t_start = time.process_time()
         pick_data(file)
         pool = Pool(processes=2)
-        pool.map(main,[i for i in [list11,list12,list13,list14,list15,list21,list22,list23,list31,list32,
-                               list33,list34,list35,list36,list37,list41,list42,list43,list44,list45,
-                               list46,list50,list51,list52,list53,list54,list61,list62,list63,list64,
-                               list65,list71,list81,list82,list91]])
-    # pool.map(main,[i for i in [list11,list12]])
+        # pool.map(main,[i for i in [list11,list12,list13,list14,list15,list21,list22,list23,list31,list32,
+        #                        list33,list34,list35,list36,list37,list41,list42,list43,list44,list45,
+        #                        list46,list50,list51,list52,list53,list54,list61,list62,list63,list64,
+        #                        list65,list71,list81,list82,list91]])
+        pool.map(main,[i for i in [list11,list12]])
         t_end = time.process_time()
         t1 = t_end - t_start
         print('{0:s}  耗时: {1:.2f} s'.format(file,t1))
