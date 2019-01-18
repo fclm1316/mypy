@@ -3,6 +3,7 @@
 import time
 import pandas as pd
 import csv
+import  re
 # t0 = time.perf_counter()
 import os
 import glob
@@ -12,7 +13,7 @@ in_path_file = glob.glob(os.path.join(in_path,'*.csv'))
 out_path = 'D:/2000Wnew'
 
 
-def pick_data(input_filename,output_filename):
+def clean_data(input_filename,output_filename):
     #pd.read_csv 打开文件，chunksize 分块读取（一千条？），返回的是一个可迭代的对象TextFileReader
     #巨大文件,C error: out of memory
     data_frame = pd.read_csv(input_filename,encoding='UTF-8',low_memory=False,chunksize=1000)
@@ -31,7 +32,9 @@ def pick_data(input_filename,output_filename):
                 Name = getattr(row,'Name')
             #通过getattr()在列中获得CtfID
                 CtfId = getattr(row,'CtfId')
-                if len(str(CtfId)) == 18:
+                #匹配前17位为数字
+                pattern = re.compile('\d{17}')
+                if len(str(CtfId)) == 18 and re.findall(pattern,CtfId[0:17]):
                     # filewrite.writerow(row)
                     birth_area = CtfId[0:2]
                     birth_year = CtfId[6:10]
@@ -51,8 +54,9 @@ def main():
     #定义程序开始时间
         t_start = time.process_time()
         filename = os.path.basename(in_file)
-        out_path_file = ''.join(out_path + '/'+ filename)
-        pick_data(in_file,out_path_file)
+        out_path_file = ''.join(out_path + '/'+ 'new_'+ filename)
+        #此处可用Pool.map ，多进程处理clean_data
+        clean_data(in_file,out_path_file)
         # print(in_file,out_path_file)
         t_end = time.process_time()
         t1 = t_end - t_start

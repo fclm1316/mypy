@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 #coding:utf-8
+import time
 import csv
 from multiprocessing import Pool
-input_filename = 'D:/2000Wnew/last50000.csv'
+import os
+import glob
+input_filename = 'D:/2000Wnew/'
 output_path ='D:/2000Wnew/'
 
 area={"11":"北京","12":"天津","13":"河北","14":"山西","15":"内蒙古",
@@ -138,9 +141,14 @@ def main(list_name):
     write_list(list_name)
 
 if __name__ == '__main__':
-    pick_data(input_filename)
-    pool = Pool(processes=2)
-    pool.map(main,[i for i in [list11,list12,list13,list14,list15,list21,list22,list23,list31,list32,
+    for file in glob.glob(os.path.join(input_filename,'new_*.csv')):
+        t_start = time.process_time()
+        pick_data(file)
+        t_end = time.process_time()
+        t1 = t_end - t_start
+        print('{0:s}  耗时: {1:.2f} s'.format(file,t1))
+        pool = Pool(processes=2)
+        pool.map(main,[i for i in [list11,list12,list13,list14,list15,list21,list22,list23,list31,list32,
                                list33,list34,list35,list36,list37,list41,list42,list43,list44,list45,
                                list46,list50,list51,list52,list53,list54,list61,list62,list63,list64,
                                list65,list71,list81,list82,list91]])
