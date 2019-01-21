@@ -50,7 +50,7 @@ def count_num(csv_filename):
    sum_human = sun_man + sun_woman
    head_name = (os.path.basename(csv_filename).split('.')[0])
    a = (head_name,sum_human,sun_man,sun_woman,S90,S80,S70,S60,S50,S40,S30,S20,Sxx)
-   filename = ''.join(output_path + '合计'+ '.csv')
+   filename = ''.join(output_path + 'heji'+ '.csv')
    # print(filename)
    with open(filename,'a',encoding='gb18030',newline='') as csv_writefile:
        writefile = csv.writer(csv_writefile)
