@@ -15,6 +15,7 @@ print(sorted(heap)[0:1])
 print(sorted(heap)[-1:])
 print('++++')
 print(heap)
+#弹出最小
 print(heapq.heappop(heap))
 print(heapq.heappop(heap))
 print('-----------------------------------------')

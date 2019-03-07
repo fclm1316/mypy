@@ -17,8 +17,18 @@ def gen_func():
 
 if __name__ == "__main__":
     gen = gen_func()
+    #在调用send 必须先启动一次生成器,gen.send(None)
+    url =gen.send(None)
     #1 启动生成器有两种 next(), send
-    print(next(gen))
-    print(next(gen))
-    print(next(gen))
-    print(next(gen))
+    # url = next(gen)
+    html ="aa"
+    print(gen.send(html)) #send 方法可以传递值进入生成器内部，同时还可以重启生成器执行到下一个yield位置
+
+
+
+
+
+    # print(next(gen))
+    # print(next(gen))
+    # print(next(gen))
+    # print(next(gen))
