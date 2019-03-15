@@ -14,12 +14,12 @@ def selectionSort(arr):
     newArr = []         #定义空列
     for i in range(len(arr)):   #设置循环
         smallest_index = findSmallest(arr) #获得最小值的位置
-        print('---')
-        print(smallest_index)
-        print('+++')
+        # print('---')
+        # print(smallest_index)
+        # print('+++')
         newArr.append(arr.pop(smallest_index)) #弹出最小值的位置，并加入新的列表中
-        print(newArr)
-        print(arr)
+        # print(newArr)
+        # print(arr)
     return newArr
 
 print(selectionSort([5,4,6,9,3,2,8,1,7]))
