@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #coding:utf-8
 import unittest
-from hzzg.test_run.test_driver import Web_Driver
+from hzzg.test_run.test_friver import Web_Driver
 
 class LogIn(Web_Driver):
     u'''登陆测试'''

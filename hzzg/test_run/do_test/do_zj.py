@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #coding:utf-8
 import unittest
-from hzzg.test_run.test_driver import Web_Driver
+from hzzg.test_run.test_friver import Web_Driver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.keys import Keys
