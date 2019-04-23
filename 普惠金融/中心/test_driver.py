@@ -9,7 +9,7 @@ from 普惠金融.config import *
 class Web_Driver(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
-        web_url = url2
+        web_url = url_zx
         self.driver.get(web_url)
         self.driver.find_element_by_id('username').send_keys(username)
         self.driver.find_element_by_id('password').send_keys(passwd)
