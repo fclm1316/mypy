@@ -5,8 +5,8 @@ from 普惠金融.前置.hzz_zj_ele import find_html_ele
 from 普惠金融.config import *
 import unittest
 
-class hzz_data_add(find_html_ele):
-    u'''账户核准制增加'''
+class hzz_data_add_11(find_html_ele):
+    u'''账户核准制增加-11类型'''
     # @unittest.skip('跳过')
     def test_11_2(self):
         u'''11_2 类型测试'''
@@ -34,16 +34,16 @@ class hzz_data_add(find_html_ele):
         super().upregioncode_11('450100')
         super().regioncode_11('450101')
         # 上传
-        super().click_sc_11()
-        super().input_file_11()
-        super().sure_upload_11()
-        super().sure_comm_11()
-        super().sure_final_upload_11()
+        super().click_sc()
+        super().input_file()
+        super().sure_upload()
+        super().sure_comm()
+        # super().sure_final_upload()
         #返回主iframe
-        super().switch_default_iframe_11()
+        super().switch_default_iframe()
         time.sleep(2)
 
-    # @unittest.skip('跳过')
+    @unittest.skip('跳过')
     def test_11_3(self):
         u'''11_3 类型测试'''
         #菜单
@@ -63,16 +63,16 @@ class hzz_data_add(find_html_ele):
         super().certifyfileno1_11('dddd')
         super().acctpermitno_11('12345')
         #上传
-        super().click_sc_11()
-        super().input_file_11()
-        super().sure_upload_11()
-        super().sure_comm_11()
-        super().sure_final_upload_11()
+        super().click_sc()
+        super().input_file()
+        super().sure_upload()
+        super().sure_comm()
+        # super().sure_final_upload()
         #返回主iframe
-        super().switch_default_iframe_11()
+        super().switch_default_iframe()
         time.sleep(2)
 
-    # @unittest.skip('跳过')
+    @unittest.skip('跳过')
     def test_11_4(self):
         u'''11_4 类型测试'''
         #菜单
@@ -92,16 +92,16 @@ class hzz_data_add(find_html_ele):
         super().certifyfileno1_11('dddd')
         super().acctpermitno_11('12345')
         #上传
-        super().click_sc_11()
-        super().input_file_11()
-        super().sure_upload_11()
-        super().sure_comm_11()
-        super().sure_final_upload_11()
+        super().click_sc()
+        super().input_file()
+        super().sure_upload()
+        super().sure_comm()
+        # super().sure_final_upload()
         #返回主iframe
-        super().switch_default_iframe_11()
+        super().switch_default_iframe()
         time.sleep(2)
 
-    # @unittest.skip('跳过')
+    @unittest.skip('跳过')
     def test_11_6(self):
         u'''11_6 类型测试'''
         time.sleep(2)
@@ -123,17 +123,17 @@ class hzz_data_add(find_html_ele):
         super().acctpermitno_11('239888')
         super().accountvalidity_11('2020-04-01')
         # 上传
-        super().click_sc_11()
-        super().input_file_11()
-        super().sure_upload_11()
-        super().sure_comm_11()
-        super().sure_final_upload_11()
+        super().click_sc()
+        super().input_file()
+        super().sure_upload()
+        super().sure_comm()
+        # super().sure_final_upload()
         #返回主iframe
-        super().switch_default_iframe_11()
+        super().switch_default_iframe()
         time.sleep(2)
 
 
-    # @unittest.skip('跳过')
+    @unittest.skip('跳过')
     def test_11_7(self):
         u'''11_7 类型测试'''
         time.sleep(2)
@@ -159,16 +159,16 @@ class hzz_data_add(find_html_ele):
         super().certifyfilekind1_11('asdv')
         super().certifyfileno1_11('advv')
         # 上传
-        super().click_sc_11()
-        super().input_file_11()
-        super().sure_upload_11()
-        super().sure_comm_11()
-        super().sure_final_upload_11()
+        super().click_sc()
+        super().input_file()
+        super().sure_upload()
+        super().sure_comm()
+        # super().sure_final_upload()
         #返回主iframe
-        super().switch_default_iframe_11()
+        super().switch_default_iframe()
         time.sleep(2)
 
-    # @unittest.skip('跳过')
+    @unittest.skip('跳过')
     def test_11_8(self):
         u'''11_8 类型测试'''
         time.sleep(2)
@@ -194,13 +194,13 @@ class hzz_data_add(find_html_ele):
         super().certifyfilekind1_11('asdv')
         super().certifyfileno1_11('advv')
         # 上传
-        super().click_sc_11()
-        super().input_file_11()
-        super().sure_upload_11()
-        super().sure_comm_11()
-        super().sure_final_upload_11()
+        super().click_sc()
+        super().input_file()
+        super().sure_upload()
+        super().sure_comm()
+        # super().sure_final_upload()
         #返回主iframe
-        super().switch_default_iframe_11()
+        super().switch_default_iframe()
         time.sleep(2)
 
 

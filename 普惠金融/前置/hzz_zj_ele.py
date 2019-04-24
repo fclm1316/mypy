@@ -4,17 +4,17 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
 import time
-from 普惠金融.前置.driver_qz import Web_Driver
+from 普惠金融.前置.driver_qz import Web_Driver1
 from 普惠金融.config import *
 
 
-class find_html_ele(Web_Driver):
+class find_html_ele(Web_Driver1):
     def show_tree(self):
         self.driver.find_element_by_xpath('/html/body/section/div/div/div/div[2]/div/img').click()
         self.driver.implicitly_wait(4)
+        time.sleep(2)
         link1 = self.driver.find_element_by_xpath('/html/body/header/div[1]/div[1]/img[2]')
         ActionChains(self.driver).click(link1).perform()
-        time.sleep(2)
 
     def dwzh_hzz(self):
         #单位账户-备案制
@@ -117,31 +117,38 @@ class find_html_ele(Web_Driver):
         self.value = value
         Select(self.driver.find_element_by_id('regioncode')).select_by_value(value)
 
-    def click_sc_11(self):
+    def click_sc(self):
         # 上传
         self.driver.find_element_by_class_name('layui-layer-btn2').click()
         # time.sleep(2)
 
-    def input_file_11(self):
+    def input_file(self):
         #放入文件
         self.driver.find_element_by_xpath('//*[@id="get"]/td[1]/form/div[2]/input[1]').send_keys(file1)
         self.driver.find_element_by_xpath('//*[@id="get"]/td[1]/form/div[2]/input[2]').send_keys(Keys.ENTER)
         # get > td:nth-child(1) > form > div:nth-child(8) > input.form-control
 
-    def sure_upload_11(self):
+    def sure_upload(self):
         # 确认上传
         self.driver.find_element_by_xpath('//*[@id="layui-layer3"]/div[3]/a').click()
         # self.driver.implicitly_wait(2)
 
-    def sure_comm_11(self):
+    def sure_comm(self):
         # 提交
+        self.driver.implicitly_wait(2)
         self.driver.find_element_by_xpath('//*[@id="submit-pic"]').click()
 
-    def sure_final_upload_11(self):
+    def sure_final_upload(self ):
+        # self.number = number
         # #上传后最后确定
-        self.driver.find_element_by_css_selector('#layui-layer5 > div.layui-layer-btn.layui-layer-btn- > a').click()
+        self.driver.implicitly_wait(2)
+        # self.driver.find_element_by_css_selector('#layui-layer{0:d} > div.layui-layer-btn.layui-layer-btn- > a'.format(number)).click()
+        # self.driver.find_element_by_class_name('layui-layer-btn0').click()
+        # self.driver.find_element_by_css_selector('div.layui-layer layui-layer-dialog  layer-anim > div.layui-layer-btn.layui-layer-btn- > a').click()
+        # self.driver.find_element_by_link_text('影像上传成功！推送至二级操作员审核')
 
-    def switch_default_iframe_11(self):
+
+    def switch_default_iframe(self):
         #切回主frame
         self.driver.switch_to.default_content()
         time.sleep(1)
@@ -160,3 +167,62 @@ class find_html_ele(Web_Driver):
         self.number = date
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.accountvalidity > input').send_keys(date,Keys.ENTER)
 
+
+    def industrycategory_21(self,value):
+        self.value = value
+        Select(self.driver.find_element_by_css_selector('#form-busi_09 > table > tbody > tr.mytr.industrycategory > td:nth-child(2) > div > select')).select_by_value(value)
+
+    def industrycategory_50_71(self, value):
+        self.value = value
+        Select(self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.industrycategory > div > select')).select_by_value(value)
+
+    def upregioncode1_21(self,value):
+        self.value = value
+        Select(self.driver.find_element_by_id('upregioncode1')).select_by_value(value)
+
+    def regioncode1_21(self,value):
+        self.value = value
+        Select(self.driver.find_element_by_id('regioncode1')).select_by_value(value)
+
+    def upregioncode_50(self,value):
+        self.value = value
+        Select(self.driver.find_element_by_id('upregioncode')).select_by_value(value)
+
+    def regioncode_50(self,value):
+        self.value = value
+        Select(self.driver.find_element_by_id('regioncode')).select_by_value(value)
+
+
+    def add_ele_21_22(self, ele, value):
+        #21 关键要素变更
+        self.ele = ele
+        self.value = value
+        self.driver.find_element_by_css_selector('#form-busi_09 > table > tbody > tr.mytr.{0:s}> td:nth-child(2) > input'.format(ele)).send_keys(value)
+
+    def add_ele_50_71_72_73_74(self, ele, value):
+        #50 关键要素变更
+        self.ele = ele
+        self.value = value
+        self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.{0:s}> input'.format(ele)).send_keys(value)
+
+    def change_ele_21_22(self, ele, value):
+        self.ele = ele
+        self.value = value
+        self.driver.find_element_by_css_selector('#form-busi_09 > table > tbody > tr.mytr.{0:s} > td:nth-child(3) > input'.format(ele)).send_keys(value)
+
+    def accountvalidity_22(self, date):
+        self.number = date
+        self.driver.find_element_by_id('accountvalidity').send_keys(date,Keys.ENTER)
+
+    def accountvalidity_74(self,date):
+        self.number = date
+        self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.accountvalidity > input').send_keys(date,Keys.ENTER)
+
+    def fuhe(self):
+        self.driver.find_element_by_css_selector('#aiarBusinessdealinfoTable > tbody > tr:nth-child(1) > td:nth-child(2) > a.data-check').click()
+
+    def fuhe_tg(self):
+        self.driver.find_element_by_css_selector('body > section > div > b > b > div:nth-child(2) > button:nth-child(11)').click()
+
+    def fuhe_tg_sure(self):
+        self.driver.find_element_by_css_selector('#layui-layer2 > div.layui-layer-btn.layui-layer-btn- > a').click()
