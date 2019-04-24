@@ -45,118 +45,118 @@ class find_html_ele(Web_Driver):
     def sure_yes(self):
         self.driver.find_element_by_link_text('确定').click()
 
-    def accountno(self,number):
+    def accountno_11(self, number):
         #账户
         self.number = number
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.accountno > input').send_keys(number)
 
-    def accountname(self,name):
+    def accountname_11(self, name):
         #账户名称
         self.name = name
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.accountname > input').send_keys(name)
 
-    def unitname(self,name):
+    def unitname_11(self, name):
         # #存款人名称
         self.name = name
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.unitname > input').send_keys(name)
 
-    def legalrepresenttative(self,name):
+    def legalrepresenttative_11(self, name):
         # #法定代表人或单位负责人姓名
         self.name = name
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.legalrepresenttative > input').send_keys(name)
 
-    def lrcertno(self,number):
+    def lrcertno_11(self, number):
         # #法定代表人或单位负责人证件号码
         self.number = number
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.lrcertno > input').send_keys(number)
 
-    def addr(self,name):
+    def addr_11(self, name):
         #地址
         self.name = name
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.addr > input').send_keys(name)
 
-    def ownerphone(self,number):
+    def ownerphone_11(self, number):
         # #法定代表人或单位负责人电话
         self.number = number
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.ownerphone > input').send_keys(number)
 
-    def zipcode(self,number):
+    def zipcode_11(self, number):
         # #邮政编码：
         self.number = number
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.zipcode > input').send_keys(number)
 
-    def certifyfilekind1(self,name):
+    def certifyfilekind1_11(self, name):
         # #证明文件1种类：
         self.name = name
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.certifyfilekind1 > input').send_keys(name)
 
-    def certifyfileno1(self,name):
+    def certifyfileno1_11(self, name):
         # #证明文件1编号：
         self.name = name
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.certifyfileno1 > input').send_keys(name)
 
-    def industrycategory(self,value):
+    def industrycategory_11(self, value):
         #行业类别
         #A-U
         self.value = value
         Select(self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.industrycategory > div > select')).select_by_value(value)
 
-    def depositorattr(self,value):
+    def depositorattr_11(self, value):
         #存款人类别
         #01-18
         self.value = value
         Select(self.driver.find_element_by_name('depositorattr')).select_by_value(value)
 
-    def upregioncode(self,value):
+    def upregioncode_11(self, value):
         # 地区代码地市
         self.value = value
         Select(self.driver.find_element_by_id('upregioncode')).select_by_value(value)
 
-    def regioncode(self,value):
+    def regioncode_11(self, value):
         # 地区代码县市
         self.value = value
         Select(self.driver.find_element_by_id('regioncode')).select_by_value(value)
 
-    def click_sc(self):
+    def click_sc_11(self):
         # 上传
         self.driver.find_element_by_class_name('layui-layer-btn2').click()
         # time.sleep(2)
 
-    def input_file(self):
+    def input_file_11(self):
         #放入文件
         self.driver.find_element_by_xpath('//*[@id="get"]/td[1]/form/div[2]/input[1]').send_keys(file1)
         self.driver.find_element_by_xpath('//*[@id="get"]/td[1]/form/div[2]/input[2]').send_keys(Keys.ENTER)
         # get > td:nth-child(1) > form > div:nth-child(8) > input.form-control
 
-    def sure_upload(self):
+    def sure_upload_11(self):
         # 确认上传
         self.driver.find_element_by_xpath('//*[@id="layui-layer3"]/div[3]/a').click()
         # self.driver.implicitly_wait(2)
 
-    def sure_comm(self):
+    def sure_comm_11(self):
         # 提交
         self.driver.find_element_by_xpath('//*[@id="submit-pic"]').click()
 
-    def sure_final_upload(self):
+    def sure_final_upload_11(self):
         # #上传后最后确定
         self.driver.find_element_by_css_selector('#layui-layer5 > div.layui-layer-btn.layui-layer-btn- > a').click()
 
-    def switch_default_iframe(self):
+    def switch_default_iframe_11(self):
         #切回主frame
         self.driver.switch_to.default_content()
         time.sleep(1)
 
-    def acctpermitno(self,number):
+    def acctpermitno_11(self, number):
         #基本存款账户开户许可证号
         self.number = number
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.acctpermitno > input').send_keys(number)
 
-    def pbclicencennum(self,number):
+    def pbclicencennum_11(self, number):
         #备案制编号
         self.number = number
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.pbclicencennum > input').send_keys(number)
 
-    def accountvalidity(self,date):
+    def accountvalidity_11(self, date):
         self.number = date
         self.driver.find_element_by_css_selector('#form-busi_10 > div.busidiv.accountvalidity > input').send_keys(date,Keys.ENTER)
 
