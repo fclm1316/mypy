@@ -39,7 +39,8 @@ class hzz_data_add_21(find_html_ele):
         super().input_file()
         super().sure_upload()
         super().sure_comm()
-        # super().sure_final_upload()
+        time.sleep(2)
+        super().sure_final_upload()
         #返回主iframe
         super().switch_default_iframe()
 
@@ -69,7 +70,8 @@ class hzz_data_add_21(find_html_ele):
         super().input_file()
         super().sure_upload()
         super().sure_comm()
-        # super().sure_final_upload()
+        time.sleep(2)
+        super().sure_final_upload()
         #返回主iframe
         super().switch_default_iframe()
 
@@ -99,7 +101,8 @@ class hzz_data_add_21(find_html_ele):
         super().input_file()
         super().sure_upload()
         super().sure_comm()
-        # super().sure_final_upload()
+        time.sleep(2)
+        super().sure_final_upload()
         #返回主iframe
         super().switch_default_iframe()
 
@@ -136,7 +139,8 @@ class hzz_data_add_21(find_html_ele):
         super().input_file()
         super().sure_upload()
         super().sure_comm()
-        # super().sure_final_upload()
+        time.sleep(2)
+        super().sure_final_upload()
         #返回主iframe
         super().switch_default_iframe()
 
@@ -173,7 +177,8 @@ class hzz_data_add_21(find_html_ele):
         super().input_file()
         super().sure_upload()
         super().sure_comm()
-        # super().sure_final_upload()
+        time.sleep(2)
+        super().sure_final_upload()
         #返回主iframe
         super().switch_default_iframe()
 

@@ -52,27 +52,25 @@ class find_html_ele(Web_Driver2):
         time.sleep(1)
 
     def fuhe(self):
+        #复核按钮
         self.driver.find_element_by_css_selector('#aiarBusinessdealinfoTable > tbody > tr:nth-child(1) > td:nth-child(2) > a.data-check').click()
 
     def fuhe_tg(self):
+        #复核通过
         self.driver.find_element_by_css_selector('body > section > div > b > b > div:nth-child(2) > button:nth-child(11)').click()
 
-    def fuhe_tg_sure(self):
-        self.driver.implicitly_wait(4)
-        # self.driver.find_element_by_xpath('//*[@id="layui-layer2"]/div[3]/a').click()
-        # self.driver.find_element_by_xpath('//*[@id="layui-layer2"]/div[3]/a').click()
-        # time.sleep(2)
-        # self.driver.find_element_by_xpath('//*[@id="layui-layer2"]/div[3]/a').click()
-        # self.driver.find_element_by_xpath('//*[@id="layui-layer2"]/div[3]/a').click()
-        link = self.driver.find_element_by_xpath('//*[@id="layui-layer2"]/div[3]/a')
-        # ActionChains(self.driver).click(link).perform()
-        js = 'document.getElementsByClassName("layui-layer-btn0")[0].click();'
+    def fuhe_sure(self):
+        #复核通过按钮
+        js = 'document.getElementsByClassName("layui-layer-btn0")[0].click()'
         self.driver.execute_script(js)
-        # time.sleep(9)
-        print('--------')
-        print(link.text)
-        # print('--------')
-        # print(link.parent)
+
+    def tuihui(self,text):
+        #退回理由
+        self.text = text
+        self.driver.find_element_by_id('message').send_keys(text)
+
+    def tuihui_tg(self):
+        self.driver.find_element_by_css_selector('body > section > div > b > b > div:nth-child(2) > button:nth-child(12)').click()
 
     def close_frame(self,name):
         self.name = name

@@ -141,11 +141,8 @@ class find_html_ele(Web_Driver1):
     def sure_final_upload(self ):
         # self.number = number
         # #上传后最后确定
-        self.driver.implicitly_wait(2)
-        # self.driver.find_element_by_css_selector('#layui-layer{0:d} > div.layui-layer-btn.layui-layer-btn- > a'.format(number)).click()
-        # self.driver.find_element_by_class_name('layui-layer-btn0').click()
-        # self.driver.find_element_by_css_selector('div.layui-layer layui-layer-dialog  layer-anim > div.layui-layer-btn.layui-layer-btn- > a').click()
-        # self.driver.find_element_by_link_text('影像上传成功！推送至二级操作员审核')
+        js = 'document.getElementsByClassName("layui-layer-btn0")[0].click()'
+        self.driver.execute_script(js)
 
 
     def switch_default_iframe(self):
