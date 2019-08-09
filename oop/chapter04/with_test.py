@@ -39,4 +39,5 @@ class Sample:
 with Sample() as s:
     s.do_something()
 
+
 #查阅@contextlib.comtextmanager 装饰器
