@@ -19,3 +19,6 @@ def name_age(first_name,last_name,*other_name,**kwargs):
         print('{}={}'.format(key,values))
 name_age('Bruce','Wayne','Batman','batman',age=28,human='Y')
 name_age('Bruce','Wayne',age=28)
+
+# 限制关键字参数的名字，可以用命名关键字参数，只接受city job 作为关键字
+# * 特殊分隔符，命名关键字参数

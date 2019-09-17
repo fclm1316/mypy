@@ -18,7 +18,7 @@ new_list = [hadle_item(i) for i in range(21) if i%2 == 1]
 print(new_list)
 
 
-#生成器
+#生成器,[] () 保存算法
 new_gen = (i for i in range(21) if i%2 == 1)
 print(type(new_gen))
 #转换成列

@@ -62,6 +62,7 @@ data = {
 }
 url_bin = 'http://httpbin.org/post'
 response = requests.post(url_bin,data=data,headers=headers)
+print('ooooooooooooooooooooo')
 print(response)
 url = 'http://www.jianshu.com'
 response = requests.get(url)
