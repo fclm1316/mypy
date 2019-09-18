@@ -5,7 +5,7 @@
 #
 def gen_func():
     # yield 1
-    #请求时间长，IO操作, 外部将值传递回来 ,产出值（调用方）
+    #请求时间长，IO操作, 外部将值传递回来 .1 产出值（调用方）2 传递值
     html = yield "http://123/download"
     print(html)
     yield 2
@@ -23,12 +23,4 @@ if __name__ == "__main__":
     # url = next(gen)
     html ="aa"
     print(gen.send(html)) #send 方法可以传递值进入生成器内部，同时还可以重启生成器执行到下一个yield位置
-
-
-
-
-
-    # print(next(gen))
-    # print(next(gen))
-    # print(next(gen))
-    # print(next(gen))
+    print(next(gen))#输出 3

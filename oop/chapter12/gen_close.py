@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #coding:utf-8
 def gen_func():
-    yield "http://123/download"
+    html = yield "http://123/download"
     print(html)
     yield 2
     yield 3
@@ -12,5 +12,6 @@ def gen_func():
 if __name__ == "__main__":
     gen = gen_func()
     print(next(gen))
+    #关闭
     gen.close()
-    next(gen)
+    print(next(gen))
