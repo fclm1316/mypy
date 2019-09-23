@@ -20,11 +20,14 @@ def salse_sum(pro_name):
 
 def middle(key):
     while True:
+        #send(key),进来
+        # yield from salse_sum(key) -- yield x
         final_result[key] = yield from salse_sum(key)
         print(key + "销量统计完成！！")
 
 def main():
     data_sets={
+        #使用列表，如果使用{},类型为set(),去重
         "冰箱":[1200,1500,300],
         "电视":[2300,2300,2300],
         "手机":[9980,12030,23282]

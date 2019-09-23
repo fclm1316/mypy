@@ -3,6 +3,7 @@
 #保留最后N个元素
 #保留最后有限的历史记录
 from collections import deque
+#list 线性储存，deque高效插入删除，双向列表，适用于队列栈
 #定义函数，定义默认值5
 def search(lines,pattern,history=5):
     previous_lines = deque(maxlen=history)

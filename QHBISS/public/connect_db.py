@@ -2,6 +2,7 @@
 #coding:utf-8
 import pymysql
 import sys
+#mysql 连接封装
 
 config = {
 'host' : '192.168.99.101',
