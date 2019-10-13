@@ -17,7 +17,7 @@ class Date:
     def parse_from_str(date_str):
         year,mouth,day = tuple(date_str.split('-'))
         #静态方法不需要使用self，调用时必须Date()
-        #缺点：更换类名称时，必须更换硬编码名称
+        #缺点：更换类名称时，必须更换硬编码名称,Date(.....)
         return  Date(int(year),int(mouth),int(day))
 #使用类方法
     #装饰器
