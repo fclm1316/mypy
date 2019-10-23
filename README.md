@@ -8,7 +8,7 @@ python coobook 书
 
 hzzg项目， 基于selenium，unittest 自动化测试demo
 
-ID    数据分析 画图
+身份证ID    数据分析 画图
 
 面向对象oop B站python高级教程
 
