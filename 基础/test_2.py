@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 #coding:utf-8
-
+import sqlalchemy
 from 基础.test_1 import mytest_1
 
 class mytest_2(mytest_1):
