@@ -6,11 +6,15 @@ python coobook 书
 
 操作csv_excel 数据清洗 分析 画图
 
-hzzg项目， 基于selenium，unittest 自动化测试demo
+公司hzzg项目， 基于selenium，unittest 自动化测试demo
 
 身份证ID    数据分析 画图
 
 面向对象oop B站python高级教程
+
+公司qhbiss 项目
+
+公司 天际线 项目
 
 s4p  shell脚本改写py
 
