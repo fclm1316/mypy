@@ -74,8 +74,8 @@ if __name__ == "__main__":
     group1 = [get_html("http://123") for i in range(10)]
     group2 = [get_html("http://345") for i in range(10)]
     #分组传递参数 , wait 只能传递一个
-    loop.run_until_complete(asyncio.gather(*group1,*group2))
-    print(time.time()-start_time)
+    # loop.run_until_complete(asyncio.gather(*group1,*group2))
+    # print(time.time()-start_time)
     group1 = asyncio.gather(*group1)
     group2 = asyncio.gather(*group2)
     # 取消
