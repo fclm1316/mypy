@@ -10,12 +10,12 @@ g = Graph("bolt://localhost:7687",user='neo4j',password='root123')
 matcher = NodeMatcher(g)
 
 async def bank_and_enterprise(bank,enterprise):
-    node_bank = Node("bank", name="{}".format(bank))
+    node_bank = Node("master", name="{}".format(bank))
     print(bank,enterprise)
-    node_enterprise = Node("enterprise", name="{}".format(enterprise),type="{}".format(bank))
-    matcher_bank = g.run("match (a:bank) where a.name='{0:s}' return a.name".format(bank))
+    node_enterprise = Node("slave", name="{}".format(enterprise),type="{}".format(bank))
+    matcher_bank = g.run("match (a:master) where a.name='{0:s}' return a.name".format(bank))
     # print('查询bank{}'.format(list(matcher_bank)))
-    matcher_enterprise = matcher.match("enterprise").where("_.name='{}'".format(enterprise),"_.type='{}'".format(bank))
+    matcher_enterprise = matcher.match("slave").where("_.name='{}'".format(enterprise),"_.type='{}'".format(bank))
     # print(matcher_enterprise)
     if len(list(matcher_bank)) == 0:
         print('创建bank:{} '.format(bank))
@@ -23,17 +23,17 @@ async def bank_and_enterprise(bank,enterprise):
     if len(list(matcher_enterprise)) == 0:
         print('创建enterprise:{}'.format(enterprise))
         g.create(node_enterprise)
-    matcher_ship = g.run("match (a:bank)-[r:拥有]->(b:enterprise) where a.name='{0:s}' and b.name='{1:s}' and b.type='{2:s}' "
+    matcher_ship = g.run("match (a:master)-[r:拥有]->(b:slave) where a.name='{0:s}' and b.name='{1:s}' and b.type='{2:s}' "
                          "return type(r)"
                          .format(bank,enterprise,bank))
     if len(list(matcher_ship)) == 0:
         print('创建ship')
-        g.run("match (a:bank),(b:enterprise) where a.name='{0:s}' and b.name='{1:s}' and b.type='{2:s}' "
+        g.run("match (a:master),(b:slave) where a.name='{0:s}' and b.name='{1:s}' and b.type='{2:s}' "
               "create (a)-[r:拥有]->(b) return type(r) "
                 .format(bank, enterprise, bank))
 
 async def enterprise_to_enterprise(bank1,en1,bank2,en2,times):
-    g.run("match (a:enterprise),(b:enterprise) where a.name='%s' and a.type='%s' and b.name='%s' and b.type='%s' "
+    g.run("match (a:slave),(b:slave) where a.name='%s' and a.type='%s' and b.name='%s' and b.type='%s' "
               "create (a)-[r:过往 { 次数:%s }]->(b) return type(r) " %(en1,bank1,en2,bank2,times))
     print("过往")
 
