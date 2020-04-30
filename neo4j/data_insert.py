@@ -1,5 +1,6 @@
 #encoding:utf-8
 # 代码太慢
+import time
 import json
 from py2neo import Graph,Node,NodeMatcher,Relationship,RelationshipMatcher
 import asyncio
@@ -109,8 +110,11 @@ async def main():
                 await enterprise_to_enterprise(pcbank,payer,bcbank,benename,values)
 
 if __name__ == '__main__':
+    start_time = time.time()
     loop = asyncio.get_event_loop()
     loop.run_until_complete(asyncio.wait([main()]))
     loop.close()
+    end_time = time.time()
+    print("时间:{:.2f}".format(end_time - start_time))
 
     # main()

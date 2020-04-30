@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 #coding:utf-8
+from fabric import Connection
 import re
 #re 模块,正则表达式
 # \w 匹配字母数字及下划线
