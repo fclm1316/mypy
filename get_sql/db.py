@@ -1,6 +1,6 @@
 #encoding:utf-8
 import  time
-from lib import run,getfile,TP,logger
+from lib import run,getfile,TP,logger,getIpInfo
 from multiprocessing import Pool
 
 log = logger.Log()
@@ -14,8 +14,8 @@ log = logger.Log()
 #        return []
 def main():
     pool = TP.ThreadPool(5)
-    for ip in getIpInfo():
-        ip = ip.split()
+    for ip in getIpInfo.IpInfo():
+        #ip = ip.split()
         pool.run(func=run.run,args=(ip,))
     pool.colse()
     while True:
@@ -23,7 +23,7 @@ def main():
             getfile.insert_db()
             break
         else:
-            time.sleep(2)
+            time.sleep(1)
 
 if __name__ == "__mian__":
     main()

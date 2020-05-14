@@ -24,6 +24,6 @@ spider  爬虫书
 
 xml    BeautifulSoup xml解析
 
-get_sql python2 后台捞取db2 oracle mysql 慢SQL  
+get_sql python2 后台捞取db2 oracle mysql 慢SQL   
 
 
