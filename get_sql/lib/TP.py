@@ -1,9 +1,12 @@
 #encoding:utf-8
 import threading
 import contextlib
-import time
+import time,sys
 from Queue import Queue
+sys.path.append("..")
+from lib.logger import log
 
+log = Log.make_logger()
 class ThreadPool(object):
     def __init__(self,max_num):
         self.StopEvent = 0
@@ -36,14 +39,14 @@ class ThreadPool(object):
             except Exception as e:
                 status = False
                 result = e
-                print("调用函数执行错误 %s" % result)
+                log.error("调用函数执行错误 {}").format(result)
 
             if status:
                 if callback is not None:
                     try:
                         callback(status,result)
                     except Exception as e:
-                        print("回调函数执行错误 %s" % e)
+                        log.error("回调函数执行错误 {}").format(e)
 
             if self.terminal:
                 event = self.StopEvent

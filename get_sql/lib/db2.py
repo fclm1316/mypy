@@ -1,8 +1,9 @@
 #encoding:utf-8
-import sys,re,os,getfile
+import sys,re,os
 reload(sys)
 sys.setdefaultencoding("utf-8")
-from logger import Log
+from lib.logger import Log
+from lib import getfile
 
 db2TopSql ="""
 db2 connect to {};
@@ -14,26 +15,55 @@ db2 connect to {};
 db2 disconnect {0:s};
 """
 
-def getTopData(val,host,dbname):
+def getTopData(val,host,app_id,app_name,env):
     log = Log.make_logger()
     pattern = re.compile("x'.*'")
-    newline = ''
-    stmt_text = ''
+    stmt_text = ""
     for line in val.split("\n"):
         if pattern.search(line):
-            executtable_id = line.split()[0]
+            if len(stmt_text) > 0:
+                stmt_text = re.sub(r'[\x00-\x1f]|  |\'|\"',"",stmt_text)
+                getfile.saveSql_db2(host,app_id,app_name,env,executable_id,stmt_text,num_execution,avg_exec_time,stmt_exec_time)
+                stmt_text = ''
+            executable_id= line.split()[0]
             insert_timestamp = line.split()[1]
             section_type = line.split()[2]
             num_execution = line.split()[3]
             stmt_exec_time = line.split()[4]
             avg_exec_time = line.split()[5]
-            stmt_text = re.sub(r'[\x00-\x1f]','',stmt_text)
-            if len(stmt_text) >0:
-                stmt_text = re.sub(r'  |\'|\"','',stmt_text)
-                newline = ''.join(executtable_id + '|'+ insert_timestamp + '|' + section_type + '|' + num_execution
-                                  + '|' + stmt_text + '|' + stmt_exec_time + '|' +avg_exec_time + '|' + stmt_text)
-                getfile.saveFile(newline,host,dbname)
-                getfile.saveSql_db2(host,dbname,executtable_id,insert_timestamp,section_type,num_execution,
-                                    stmt_exec_time,avg_exec_time,stmt_text)
-                stmt_text = ""
-                newline = ""
+            stmt_text = ' '.join(line.split()[6:])
+        elif len(stmt_text) > 0:
+            stmt_text = ''.join(stmt_text + line + '\n')
+
+
+db2FullTable = """
+db2expln -d {} -q "{};" -g -z ";" -t
+"""
+
+execDb2TopSh ="""
+sh  /tmp/{};
+cat /tmp/tmp.xtx
+"""
+# def getTopData(val,host,dbname):
+#     log = Log.make_logger()
+#     pattern = re.compile("x'.*'")
+#     newline = ''
+#     stmt_text = ''
+#     for line in val.split("\n"):
+#         if pattern.search(line):
+#             executtable_id = line.split()[0]
+#             insert_timestamp = line.split()[1]
+#             section_type = line.split()[2]
+#             num_execution = line.split()[3]
+#             stmt_exec_time = line.split()[4]
+#             avg_exec_time = line.split()[5]
+#             stmt_text = re.sub(r'[\x00-\x1f]','',stmt_text)
+#             if len(stmt_text) >0:
+#                 stmt_text = re.sub(r'  |\'|\"','',stmt_text)
+#                 newline = ''.join(executtable_id + '|'+ insert_timestamp + '|' + section_type + '|' + num_execution
+#                                   + '|' + stmt_text + '|' + stmt_exec_time + '|' +avg_exec_time + '|' + stmt_text)
+#                 getfile.saveFile(newline,host,dbname)
+#                 getfile.saveSql_db2(host,dbname,executtable_id,insert_timestamp,section_type,num_execution,
+#                                     stmt_exec_time,avg_exec_time,stmt_text)
+#                 stmt_text = ""
+#                 newline = ""

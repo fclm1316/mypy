@@ -1,18 +1,17 @@
 #encoding:utf-8
 import  time
-
 from lib import run,getfile,TP,logger
 from multiprocessing import Pool
 
 log = logger.Log()
 
-def getIpInfo():
-    try:
-        with open('ip') as f:
-            return f.readlines()
-    except Exception as e:
-        print(e)
-        return []
+#def getIpInfo():
+#    try:
+#        with open('ip') as f:
+#            return f.readlines()
+#    except Exception as e:
+#        print(e)
+#        return []
 def main():
     pool = TP.ThreadPool(5)
     for ip in getIpInfo():

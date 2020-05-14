@@ -31,6 +31,11 @@ class DataBase:
             sys.exit()
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        # exc_type如果抛出异常, 这里获取异常的类型
+        #
+        # exc_val如果抛出异常, 这里显示异常内容
+        #
+        # exc_tb如果抛出异常, 这里显示所在位置
         try:
             #断开游标
             self.cursor.close()
