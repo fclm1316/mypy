@@ -77,4 +77,3 @@ LOGGING_DIC = {
     },
 }
 
-print(LOGGING_DIC)
