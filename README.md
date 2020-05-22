@@ -14,6 +14,7 @@ python coobook 书
 
 身份证ID    数据分析 画图
     主要库:pandan,multiprocessing,pyecharts
+
 面向对象oop B站python高级教程
 
 qhbiss公司青海项目
