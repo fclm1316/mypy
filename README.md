@@ -16,11 +16,13 @@ python coobook 书
     主要库:pandan,multiprocessing,pyecharts
 面向对象oop B站python高级教程
 
-公司qhbiss 项目
+qhbiss公司青海项目
+unittest库 ， HTMLTestRunner库 selenium 库
 
 公司 天际线 项目
 
 s4p  shell脚本改写py
+自动备份，清除日志，打包，自动ftp等
 
 selenium  基于selenium2的自动化测试 书
 
