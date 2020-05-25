@@ -43,6 +43,8 @@ start_time = time.time()
 
 while True:
     taget_cursor = conn.cursor()
+    #流式游标
+    #object_cursor = conn.cursor(pymysql.cursors.SSCursor)
     object_cursor = conn.cursor()
     taget_cursor.execute(sql_one)
     object_cursor.execute(sql_all)
