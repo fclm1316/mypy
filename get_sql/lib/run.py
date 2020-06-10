@@ -22,6 +22,7 @@ def run(ipinfo):
         c = Connection(host=host,user=user,connect_kwargs={'password':pwd},connect_timeout=60)
 
         if dbtype == "2":
+            counter_bar['start'] +=1
             log.info("dbtype is db2")
             filepath = os.path.join(local_template,db2TopSqlsh)
             c.put(filepath,route_tmp)
@@ -33,8 +34,10 @@ def run(ipinfo):
                 log.info("analysis db2 start")
                 db2.getTopData(result.stdout,host,app_id,app_name,env)
                 log.info("analysis db2 done")
+            counter_bar['done'] +=1
 
         elif dbtype == "3":
+            counter_bar['start'] +=1
             log.info("dbtype is aix")
             filepath = os.path.join(local_template,oracleShFile)
             c.put(filepath,route_tmp)
@@ -46,8 +49,10 @@ def run(ipinfo):
                 log.info("analysis oracle start")
                 db2.getTopData(result.stdout,host,app_id,app_name,env)
                 log.info("analysis oracle done")
+            counter_bar['done'] +=1
 
         elif dbtype== "4":
+            counter_bar['start'] +=1
             log.info("dbtype is mysql")
             logpath = mysql.getLog(host,dbuser,encdbpwd)
             localfile_name = os.path.join(local_tmp,''.join(host.replace('.','_') + "_mysql.log"))
@@ -59,6 +64,7 @@ def run(ipinfo):
                 log.info("analysis mysql done")
             except Exception as e:
                 log.info("analysis mysql error {}").format(e)
+            counter_bar['done'] +=1
 
         else:
             log.critical('{} {}'.format((ipinfo,"not pattern any dbtype")))
