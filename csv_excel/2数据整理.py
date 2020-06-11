@@ -27,7 +27,7 @@ with open(input_file,'r',encoding='gb18030',newline='') as csv_in_file:
         filewriter.writerow(header)
         for row_list in filereader:
             #查找字符串里的逗号
-            patten = re.compile(',')
+            patten = re.compile(r',')
             #创建新的列
             new_list=[]
             for eachone in row_list:
