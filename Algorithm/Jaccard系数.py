@@ -4,7 +4,7 @@
 # get_sql
 #
 import re
-from mylib import MysqlTools:
+from mylib import MysqlTools
 from mylib.setting_mysql import apmdb
 
 sel = 'select stmt_text,sql_md5 from oracle_slow_sql'
