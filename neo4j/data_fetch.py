@@ -1,10 +1,11 @@
-#encoding:utf-8
+# encoding:utf-8
 import asyncio
 import pandas as pd
 from queue import Queue
 from collections import Counter
 import time
 import json
+
 input_filename = 'D:/data/cbcp_20191011/388.txt'
 # input_filename = 'D:/data/cbcp_20191011/test.txt'
 q = Queue()
@@ -33,20 +34,21 @@ async def take_data():
     #
     # print('打开文件')
     # data_frame = pd.read_csv(input_filename,encoding='utf-8',low_memory=False,chunksize=10000,delimiter="^",error_bad_lines=False)
-    data_frame = pd.read_csv(input_filename,encoding='gb18030',low_memory=False,chunksize=10000,delimiter="|",error_bad_lines=False)
+    data_frame = pd.read_csv(input_filename, encoding='gb18030', low_memory=False, chunksize=10000, delimiter="|",
+                             error_bad_lines=False)
     # print('读取信息')
     for aa in data_frame:
-        test = aa[['PCBANK','PAYER','BCBANK','BENENAME']]
-        for row in test.itertuples(index=False,name='new_test'):
+        test = aa[['PCBANK', 'PAYER', 'BCBANK', 'BENENAME']]
+        for row in test.itertuples(index=False, name='new_test'):
             # print("开始时间")
             start_time = time.time()
-            test1 = str(getattr(row,'PCBANK')).strip()
-            test2 = str(getattr(row,'PAYER')).strip()
-            test3 = str(getattr(row,'BCBANK')).strip()
-            test4 = str(getattr(row,'BENENAME')).strip()
+            test1 = str(getattr(row, 'PCBANK')).strip()
+            test2 = str(getattr(row, 'PAYER')).strip()
+            test3 = str(getattr(row, 'BCBANK')).strip()
+            test4 = str(getattr(row, 'BENENAME')).strip()
             # print(test1,test2)
             # print('放入队列')
-            q.put("{0:s},{1:s},{2:s},{3:s}".format(test1,test2,test3,test4))
+            q.put("{0:s},{1:s},{2:s},{3:s}".format(test1, test2, test3, test4))
             # print(all_data)
             if q.qsize() == 10000:
                 # print('队列大小为 10000，暂停')
@@ -60,15 +62,15 @@ async def take_data():
 async def json_data():
     await take_data()
     # 对大队列进行统计，写入json文件中
-    dict_all ={}
+    dict_all = {}
     for i in range(q_dict.qsize()):
         # print(q_dict.get())
         count_dict = dict(q_dict.get())
         dict_all = Counter(dict_all) + Counter(count_dict)
     # print(sum(dict(dict_all).values()))
     # print(dict(dict_all))
-    with open('D:/data/cbcp_20191011/dict_all.txt','w',encoding='gb18030',newline='') as file:
-        file.write(json.dumps(dict(dict_all),ensure_ascii=False))
+    with open('D:/data/cbcp_20191011/dict_all.txt', 'w', encoding='gb18030', newline='') as file:
+        file.write(json.dumps(dict(dict_all), ensure_ascii=False))
 
 
 if __name__ == "__main__":

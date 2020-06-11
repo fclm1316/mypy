@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-#coding:utf-8
+# coding:utf-8
 import csv
 import sys
 import matplotlib.pyplot as plt
-#import matplotlib.dates as mdate
+
+# import matplotlib.dates as mdate
 input_file = sys.argv[1]
 workdate = []
 t_sum = []
@@ -20,6 +21,6 @@ plt.xlabel('mouth')
 plt.ylabel('sum')
 plt.title('aa')
 plt.xticks(rotation=45)
-#plt.gcf().autofmt_xdate()
+# plt.gcf().autofmt_xdate()
 plt.legend()
 plt.show()

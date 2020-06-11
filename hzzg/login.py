@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-#coding:utf-8
+# coding:utf-8
 import time
 from hzzg.cfg import *
 from selenium import webdriver
 
+
 class LogIn:
-    def __init__(self,driver):
+    def __init__(self, driver):
         self.driver = driver
 
     def login_1(self):
