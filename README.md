@@ -5,11 +5,11 @@ get_sql python2 后台捞取db2 oracle mysql 慢SQL
 
 Algorithm 算法   
 
-   二分法，jaccard系数，排序
+    二分法，jaccard系数，排序
    
 操作csv_excel 数据清洗 分析 画图   
 
-   主要库:pandan,matplotlib,pyecharts
+    主要库:pandan,matplotlib,pyecharts
 
 公司hzzg项目   
 
@@ -27,15 +27,15 @@ s4p  shell脚本改写py
 
 qhbiss公司青海项目   
 
-unittest库 ， HTMLTestRunner库 selenium 库
+    unittest库 ， HTMLTestRunner库 selenium 库 ,自动化测试
 
 公司 天际线 项目
 
-selenium  基于selenium2的自动化测试 书
+    selenium  基于selenium2的自动化测试 书
 
 spider  爬虫书
 
-xml    BeautifulSoup xml解析
+    xml    BeautifulSoup xml解析
 
 python coobook 书
 
