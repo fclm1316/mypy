@@ -1,8 +1,8 @@
 #!/bin/bash
-#jjbxsrv        203.3.235.20/203.3.237.58
-#jflow          203.3.237.46
-#ssp:jjbxssp    203.3.235.19
-#tpp:jjbxtpp    203.3.235.19
+#jjbxsrv        192.3.235.20/192.3.237.58
+#jflow          192.3.237.46
+#ssp:jjbxssp    192.3.235.19
+#tpp:jjbxtpp    192.3.235.19
 #
 jjbsvr_path="/home/jjbxsrv/apache-tomcat-8.0.48"
 jjbxsrv_start="source .bash_profile;cd ${jjbsvr_path}/bin;sh startup.sh"

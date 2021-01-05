@@ -1,5 +1,5 @@
 #!/bin/bash
-#203.3.237.187/188
+#192.3.237.187/188
 #
 target_start="cd /home/tsywmsp/cabi/;sh startup.sh"
 target_stop="cd /home/tsywmsp/cabi/;sh shutdown.sh"

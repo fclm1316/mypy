@@ -1,5 +1,5 @@
 #!/bin/bash
-#services       203.3.239.110/111
+#services       192.3.239.110/111
 #
 afrp_path="/home/admin/afrp"
 afrp_start="source .bash_profile;cd ${afrp_path};sh start.sh afrp-service.jar"

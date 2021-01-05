@@ -1,5 +1,5 @@
 #!/bin/bash
-#app 203.3.239.110/111
+#app 192.3.239.110/111
 #
 baas_app_path="czbBaaS"
 baas_app_path_contract="${baas_app_path}/czbBaaS-contract/app"

@@ -1,5 +1,5 @@
 #!/bin/bash
-#var ip 10.0.244.41/42
+#var ip 192.0.244.41/42
 #
 target_start='sh /home/weaver/Resin/bin/startresin.sh'
 target_stop='sh /home/weaver/Resin/bin/stopresin.sh'

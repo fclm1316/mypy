@@ -1,5 +1,5 @@
 #!/bin/bash
-#203.3.237.187/188
+#192.3.237.187/188
 #
 wsadmin_path="/opt/IBM/WebSphere/AppServer/profiles/app6/bin/wsadmin.sh"
 Name="${wsadmin_path} -lang jython -f /tmp/was_export.py ALS6 /tmp/ALS6_lpt.ear"

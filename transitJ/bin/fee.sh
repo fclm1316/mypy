@@ -1,5 +1,5 @@
 #!/bin/bash
-#var ip 10.32.242.132
+#var ip 192.32.242.132
 #
 fee_stop='sh /home/fee/stopfee.sh'
 target_facepl='cd /home/fee/facepl;ls -t face*.jar|head -n1|xargs tar zcf /tmp/facepl.tgz'
