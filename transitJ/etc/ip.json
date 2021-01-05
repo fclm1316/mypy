@@ -1,0 +1,199 @@
+{
+    "default": [
+        {
+            "user": "root",
+            "password": "123456",
+            "msg": "default user and password"
+        }
+    ],    
+
+    "OA_lpt": [
+        {
+            "user": "root",
+            "password": "123456",
+            "ip_list": [
+            "192.3.230.47",
+            "192.3.230.42",
+            "192.3.230.43",
+            "192.3.230.44",
+            "192.3.230.45",
+            "192.3.230.46"
+            ]
+        }
+    ],
+
+    "OA_var": [
+        {
+            "user": "root",
+            "password": "123456",
+            "ip_list": [
+            "10.0.244.41"
+            ]
+        }
+    ],
+
+    "fee_var": [
+        {
+            "user": "fee",
+            "password": "123456",
+            "ip_list": [
+            "10.32.242.131"
+            ]
+        }
+    ],
+
+    "fee_lpt": [
+        {
+            "user": "fee",
+            "password": "123456",
+            "ip_list": [
+            "192.3.250.50",
+            "192.3.250.51",
+            "192.3.250.52"
+            ]
+        }
+    ],
+
+    "jjbxsrv_var": [
+        {
+            "user": "jjbxsrv",
+            "password": "123456",
+            "ip_list": [
+            "192.3.237.43"
+            ]
+        }
+    ],
+    "jflow_var": [
+        {
+            "user": "jflowsrv",
+            "password": "123456",
+            "ip_list": [
+            "192.3.237.45"
+            ]
+        }
+    ],
+    "jjbxssp_var": [
+        {
+            "user": "jjbxssp",
+            "password": "123456",
+            "ip_list": [
+            "192.3.239.151"
+            ]
+        }
+    ],
+    "jjbxtpp_var": [
+        {
+            "user": "jjbxtpp",
+            "password": "123456",
+            "ip_list": [
+            "192.3.239.151"
+            ]
+        }
+    ],
+
+    "jjbxsrv1_lpt": [
+        {
+            "user": "jjbxsrv",
+            "password": "123456",
+            "ip_list": [
+            "192.3.235.20"
+            ]
+        }
+    ],
+    "jjbxsrv2_lpt": [
+        {
+            "user": "jjbxsrv",
+            "password": "123456",
+            "ip_list": [
+            "192.3.237.58"
+            ]
+        }
+    ],
+    "jflow_lpt": [
+        {
+            "user": "jflowsrv",
+            "password": "123456",
+            "ip_list": [
+            "192.3.237.46"
+            ]
+        }
+    ],
+    "jjbxssp_lpt": [
+        {
+            "user": "jjbxssp",
+            "password": "123456",
+            "ip_list": [
+            "192.3.235.19"
+            ]
+        }
+    ],
+    "jjbxtpp_lpt": [
+        {
+            "user": "jjbxtpp",
+            "password": "123456",
+            "ip_list": [
+            "192.3.235.19"
+            ]
+        }
+    ],
+    "afrp_var": [
+        {
+            "user": "admin",
+            "password": "123456",
+            "ip_list": [
+            "192.3.239.110"
+            ]
+        }
+    ],
+    "afrp_lpt": [
+        {
+            "user": "admin",
+            "password": "123456",
+            "ip_list": [
+            "192.3.250.137",
+            "192.3.250.138"
+            ]
+        }
+    ],
+    "BAAS_var": [
+        {
+            "user": "baasp",
+            "password": "123456",
+            "ip_list": [
+            "192.3.227.49"
+            ]
+        }
+    ],
+    "BAAS_lpt": [
+        {
+            "user": "baasp",
+            "password": "123456",
+            "ip_list": [
+            "192.3.250.96",
+            "192.3.250.97"
+            ]
+        }
+    ],
+
+    "CABI_lpt": [
+        {
+            "user": "tsywmsp",
+            "password": "123456",
+            "ip_list": [
+            "192.3.250.67",
+            "192.3.250.79"
+            ]
+        }
+    ],
+
+    "CABI_var": [
+        {
+            "user": "tsywmsp",
+            "password": "123456",
+            "ip_list": [
+                "192.3.237.187"
+            ]
+        }
+    ]
+
+}

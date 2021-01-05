@@ -1,4 +1,16 @@
 # mypy   
+transitJ
+
+    jenkins 调用bin/中的脚本，获取验证环境包，同步至压测环境中。trans.py
+
+scrapy
+
+    爬虫抓取CAT中日志，获取类名、方法名，插入neo4j中，绘图。java服务提供查询修改等
+    
+montable
+
+    调用db2 oracle mysql 的py库，获取字段,将字段保存，然后比对文本，来获取每周表结构变化
+
 get_sql python2 后台捞取db2 oracle mysql 慢SQL   
 
     主要库:fabric,cython,theadpool,logger,pymysql
