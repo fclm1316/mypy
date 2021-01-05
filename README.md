@@ -1,7 +1,7 @@
 # mypy   
 transitJ
 
-    jenkins 调用bin/中的脚本，获取验证环境包，同步至压测环境中。trans.py
+    jenkins 调用bin/中的脚本，获取验证环境包，同步至压测环境中。trans.py基础功能,使用fabric
 
 scrapy
 
